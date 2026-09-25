@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'work-tracker-pwa-';
-const CACHE_NAME = `${CACHE_PREFIX}2`;
+const CACHE_NAME = `${CACHE_PREFIX}3`;
 const APP_SHELL = [
   './',
   './index.html',
