@@ -36,7 +36,13 @@
     window.addEventListener('load', () => {
       if ('serviceWorker' in navigator) {
         const workerUrl = new URL('work_tracker_sw.js', document.baseURI);
-        navigator.serviceWorker.register(workerUrl).catch(() => {});
+        let refreshing = false;
+        const hadController = !!navigator.serviceWorker.controller;
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          if (hadController && !refreshing) { refreshing = true; location.reload(); }
+        });
+        navigator.serviceWorker.register(workerUrl, {updateViaCache: 'none'})
+          .then((registration) => registration.update()).catch(() => {});
       }
     });
   </script>
