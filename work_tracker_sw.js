@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'work-tracker-pwa-';
-const CACHE_NAME = `${CACHE_PREFIX}10`;
+const CACHE_NAME = `${CACHE_PREFIX}20261006-services-annual-v1`;
 const APP_SHELL = [
   './',
   './index.html',
@@ -28,7 +28,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) =>
       Promise.all(
-        APP_SHELL.map((url) => cache.add(new Request(url, {cache: 'reload'})).catch(() => null))
+        APP_SHELL.map((url) => cache.add(url).catch(() => null))
       )
     )
   );
