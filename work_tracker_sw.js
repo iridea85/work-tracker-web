@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'work-tracker-pwa-';
-const CACHE_NAME = `${CACHE_PREFIX}20261117-home-premium-approved`;
+const CACHE_NAME = `${CACHE_PREFIX}20261117-dashboard-impact-fullscreen`;
 const APP_SHELL = [
   './',
   './index.html',

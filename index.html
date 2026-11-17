@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="Work Tracker: sessioni di lavoro, saldo ore e storico salvati localmente.">
-  <meta name="theme-color" content="#355C66">
+  <meta name="theme-color" content="#173D49">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Work Tracker">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
@@ -23,11 +23,29 @@
       width: 100%;
       height: 100%;
       margin: 0;
-      background: #f6f7f9;
+      background: #173D49; color-scheme: dark;
     }
+    #wt-splash {position:fixed;inset:0;z-index:2147483647;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 20% 10%,#356A73 0%,#173D49 55%,#10232F 100%);color:#fff;font-family:system-ui,sans-serif;transition:opacity 160ms ease-out;}
+    #wt-splash .brand {display:flex;flex-direction:column;align-items:center;gap:20px;}
+    #wt-splash svg {width:82px;height:82px;filter:drop-shadow(0 8px 20px #0003);}
+    #wt-splash strong {font-size:29px;font-weight:750;letter-spacing:-.8px;}
+    #wt-splash.is-ready {opacity:0;pointer-events:none;}
+    @media(prefers-reduced-motion:reduce){#wt-splash{transition:none;}}
   </style>
 </head>
 <body>
+  <div id="wt-splash" role="status" aria-label="Avvio Work Tracker">
+    <div class="brand">
+      <svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M50 12a38 38 0 1 0 38 38" stroke="currentColor" stroke-width="7" stroke-linecap="round"/><path d="M50 28v24l17 10M71 12v22h22" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <strong>Work Tracker</strong>
+    </div>
+  </div>
+  <script>
+    window.addEventListener('flutter-first-frame', () => {
+      const splash = document.getElementById('wt-splash');
+      if (splash) { splash.classList.add('is-ready'); setTimeout(() => splash.remove(), 180); }
+    }, {once:true});
+  </script>
   <script>
     if ('storage' in navigator && 'persist' in navigator.storage) {
       navigator.storage.persist().catch(() => false);
