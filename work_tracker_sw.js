@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'work-tracker-pwa-';
-const CACHE_NAME = `${CACHE_PREFIX}20261106-ore-validate-cutoff-113832`;
+const CACHE_NAME = `${CACHE_PREFIX}20261117-home-premium-approved`;
 const APP_SHELL = [
   './',
   './index.html',
