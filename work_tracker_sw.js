@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'work-tracker-pwa-';
-const CACHE_NAME = `${CACHE_PREFIX}20261117-ore-validate-cicli-f7e6b9003f51`;
+const CACHE_NAME = `${CACHE_PREFIX}20261118-home-visibilita-b95d1862cbd7`;
 const APP_SHELL = [
   './',
   './index.html',
